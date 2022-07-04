@@ -6,6 +6,9 @@
 
     {% if entry %}
         {{ entry | safe }}
+        <div>
+            <a href="{% url 'edit' title %}">Edit Page</a>
+        </div>
     {% else %}
         <h1>{{ title }}</h1>
         <p><b>Encyclopedia does not have an article with this exact name.</b></p>

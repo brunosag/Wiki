@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib import messages
 
 from . import util
@@ -46,3 +47,16 @@ def new_page(request):
         util.save_entry(title, content)
         return redirect("wiki/" + title)
     return render(request, "encyclopedia/new_page.html")
+
+def edit(request, title):
+    if not util.get_entry(title):
+        return redirect(reverse("entry", args=[title]))
+    if request.method == "POST":
+        content = request.POST["content"]
+        util.save_entry(title, content)
+        return redirect(reverse("entry", args=[title]))
+    content = util.get_entry(title)
+    return render(request, "encyclopedia/edit.html", {
+        "title": title,
+        "content": content
+    })
