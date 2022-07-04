@@ -1,9 +1,30 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}Encyclopedia{% endblock %}
+{% block title %}New Page - Encyclopedia{% endblock %}
 
 {% block body %}
 
-    
+    <div class="mb-3">
+        <h1>New Page</h1>
+    </div>
+    <div class="col-10">
+        {% include "encyclopedia/messages.html" %}
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row mb-3">
+            <div class="col-10">
+                <label for="title" class="form-label">Title:</label>
+                <input name="title" type="text" class="form-control" value="{{ title }}" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-10">
+                <label for="content" class="form-label">Enter the Markdown content below:</label>
+                <textarea name="content" class="form-control" rows="8" required>{{ content }}</textarea>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save page">
+    </form>
 
 {% endblock %}

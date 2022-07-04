@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from . import util
 from markdown2 import Markdown
@@ -31,3 +32,17 @@ def search(request):
     return render(request, "encyclopedia/search.html", {
         "results": results
     })
+
+def new_page(request):
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = request.POST["content"]
+        if title in util.list_entries():
+            messages.error(request, "An encyclopedia entry already exists with the provided title.")
+            return render(request, "encyclopedia/new_page.html", {
+                "title": title,
+                "content": content
+            })
+        util.save_entry(title, content)
+        return redirect("wiki/" + title)
+    return render(request, "encyclopedia/new_page.html")
