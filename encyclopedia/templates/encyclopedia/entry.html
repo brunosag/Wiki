@@ -9,7 +9,7 @@
     {% else %}
         <h1>{{ title }}</h1>
         <p><b>Encyclopedia does not have an article with this exact name.</b></p>
-        <p>Please <a href="#">search for {{ title }} in Encyclopedia</a> to check for alternative titles or spellings.</p>
+        <p>Please <a href="/search?q={{ title }}">search for {{ title }} in Encyclopedia</a> to check for alternative titles or spellings.</p>
     {% endif %}
 
 {% endblock %}
