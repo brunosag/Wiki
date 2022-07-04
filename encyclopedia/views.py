@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from . import util
 from markdown2 import Markdown
+from random import choice
 
 
 def index(request):
@@ -60,3 +61,8 @@ def edit(request, title):
         "title": title,
         "content": content
     })
+
+def random(request):
+    entries = util.list_entries()
+    entry = choice(entries)
+    return redirect(reverse("entry", args=[entry]))
