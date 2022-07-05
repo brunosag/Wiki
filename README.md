@@ -7,7 +7,7 @@
 
 * Proposed by CS50W in [Project 1](https://cs50.harvard.edu/web/2020/projects/1/wiki/);
 * Built with Django & Python.
-* Distribution code was given in advance.
+* Distribution code given in advance.
 
 
 ## Video Demo
