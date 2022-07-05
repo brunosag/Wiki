@@ -1,11 +1,13 @@
-<h1 align="center">Search</h1>
+<h1 align="center">Wiki</h1>
 
 <h4 align="center">A Wikipedia-like online encyclopedia.</h4>
 
 
 ## About
 
-Proposed by CS50W in [Project 1](https://cs50.harvard.edu/web/2020/projects/1/wiki/).
+* Proposed by CS50W in [Project 1](https://cs50.harvard.edu/web/2020/projects/1/wiki/);
+* Built with Django & Python.
+* Distribution code was given in advance.
 
 
 ## Video Demo
